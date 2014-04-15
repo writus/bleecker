@@ -1,0 +1,29 @@
+{% extends 'bleecker.layout.twig' %}
+
+{% block content %}
+
+            
+     <div class="col-md-9">
+                
+                <div class="post">
+                    <h2 class="post-title">{{ post.title }}</h2>
+                    <div class="post-date">Posted on {{ post.date|date('M d, Y') }}</div>
+                    <div class="post-text">{{ post.body }}</div>
+                    
+                    <div class="post-footer">
+                        {% if post.catlinks %}
+                        Posted in {{ post.catlinks|join(', ') }}
+                         
+                        {% endif %}
+                        {% if post.taglinks and post.catlinks %}
+                        | 
+                        {% endif %}
+                        {% if post.taglinks %}
+                         Tagged {{ post.taglinks|join(', ') }}
+                         {% endif %}
+                    </div>
+                </div>
+                
+            </div>
+      
+{% endblock %}
